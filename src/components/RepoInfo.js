@@ -15,12 +15,29 @@ const RepoInfo = (props) => {
 	}
 
 	return (
-		<div>
-			<h2><b>Full Name : </b>{infos.full_name}</h2>
-			<div><b>Description : </b>{infos.description}</div>
-			<div><b>Stars : </b>{infos.stargazers_count}</div>
+		<div className='RepoInfo'>
+			<h2 className='header'> [{infos.full_name}] </h2>
+
+			<div className='title'> Description : </div>
+			<div className='content'> {infos.description} </div>
+
+			<div className='title'> Stars : </div>
+			<div className='content'> {infos.stargazers_count} </div>
+
+			<div className='title'> Created at : </div>
+			<div className='content'> {infos.created_at} </div>
+
+			<div className='title'> Clone url : </div>
+			<div className='content'> {infos.clone_url} </div>
+
 			<br></br>
-			<Link to={infos.html_url}> Link </Link>
+			<a
+				href={infos.html_url}
+				target="_blank"
+				rel="noreferrer"
+			>
+					<b> [Link] </b>
+			</a>
 		</div>
 	);
 };

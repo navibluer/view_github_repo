@@ -3,6 +3,12 @@ body {
 	color: #fff;
 }
 
+a {
+	color: #fff;
+	text-decoration: none;
+	cursor: pointer;
+}
+
 .App-logo {
 	height: 10vmin;
 }
@@ -34,12 +40,31 @@ body {
 
 .List-table td {
 	height: 24px;
+	padding: 8px 24px 8px 0;
 	/* text-align: center; */
 	/* font-style: italic; */
 }
 
-a {
-	color: #fff;
-	text-decoration: none;
-	cursor: pointer;
+.List-table td:nth-child(3) {
+	text-align: right;
+	padding: 8px;
+}
+
+.RepoInfo {
+	text-align: left;
+	width: 40vw;
+	margin: 0 auto;
+}
+
+.RepoInfo .header {
+	text-align: center;
+}
+
+.RepoInfo .title {
+	margin: 16px 0;
+	font-weight: bold;
+}
+
+.RepoInfo .content {
+	padding-left: 8px;
 }
