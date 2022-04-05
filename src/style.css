@@ -20,7 +20,7 @@ a {
 /* Custom */
 
 .User {
-	width: 50vw;
+	max-width: 60vw;
 	margin: 0 auto;
 	text-align: left;
 }
@@ -29,8 +29,12 @@ a {
 	text-align: center;
 }
 
+
 .List-table {
-	border-collapse: collapse; 
+	border-collapse: collapse;
+	width: 100%;
+	table-layout: fixed;
+	overflow-wrap: break-word;
 }
 
 .List-table thead {
@@ -41,8 +45,6 @@ a {
 .List-table td {
 	height: 24px;
 	padding: 8px 24px 8px 0;
-	/* text-align: center; */
-	/* font-style: italic; */
 }
 
 .List-table td:nth-child(3) {
