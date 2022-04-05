@@ -18,14 +18,14 @@ function User() {
 		setUserState({ loading: true});
 		// defunkt
 		const apiUrl = `https://api.github.com/users/${userName}/repos`;
-		const options = {
-			method: 'GET',
-			headers: {
-				Authorization: "token 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",
-			},
-		};
+		// const options = {
+		// 	method: 'GET',
+		// 	headers: {
+		// 		Authorization: "token ",
+		// 	},
+		// };
 		
-		fetch(apiUrl, options)
+		fetch(apiUrl)
 			.then((res) => res.json())
 			.then((repos) => {
 				setUserState({ loading: false, repos: repos });

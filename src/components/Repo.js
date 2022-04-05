@@ -18,14 +18,14 @@ function Repo() {
 	useEffect(() => {
 		setRepoState({ loading: true});
 		const apiUrl = `https://api.github.com/repos/${userName}/${repoName}`;
-		const options = {
-			method: 'GET',
-			headers: {
-				Authorization: "token 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",
-			},
-		};
+		// const options = {
+		// 	method: 'GET',
+		// 	headers: {
+		// 		Authorization: "token ",
+		// 	},
+		// };
 
-		fetch(apiUrl, options)
+		fetch(apiUrl)
 			.then((res) => res.json())
 			.then((infos) => {
 				// console.log(infos.id);
