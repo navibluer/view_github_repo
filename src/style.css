@@ -14,11 +14,32 @@ body {
 /* Custom */
 
 .User {
-	width: 60vw;
+	width: 50vw;
 	margin: 0 auto;
 	text-align: left;
 }
 
 .User-header {
 	text-align: center;
+}
+
+.List-table {
+	border-collapse: collapse; 
+}
+
+.List-table thead {
+	height: 32px;
+	border-bottom: 1px solid #fff;
+}
+
+.List-table td {
+	height: 24px;
+	/* text-align: center; */
+	/* font-style: italic; */
+}
+
+a {
+	color: #fff;
+	text-decoration: none;
+	cursor: pointer;
 }

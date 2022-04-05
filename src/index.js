@@ -1,32 +1,8 @@
-import React, { Suspense, lazy } from 'react';
 import * as ReactDOM from 'react-dom/client';
-import './index.css';
+import React from 'react';
 import reportWebVitals from './reportWebVitals';
-import {
-	BrowserRouter as Router,
-	Routes,
-	Route,
-} from 'react-router-dom';
+import App from './App';
 
-const Home = lazy(() => import('./components/Home'));
-const User = lazy(() => import('./components/User'));
-
-const App = () => (
-	<Router>
-		<Suspense fallback={<div>Loading...</div>}>
-			<Routes>
-				<Route
-          path="/"
-          element={<Home />}
-        />
-				<Route
-          path="/users/:userName/repos"
-          element={<User/>}
-        />
-			</Routes>
-		</Suspense>
-	</Router>
-);
 
 const container = document.getElementById('root');
 const root = ReactDOM.createRoot(container);
