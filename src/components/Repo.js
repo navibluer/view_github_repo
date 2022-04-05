@@ -15,7 +15,7 @@ function Repo() {
 		infos: null,
 	});
 
-	useEffect(() => {
+	useEffect( () => {
 		setRepoState({ loading: true});
 		const apiUrl = `https://api.github.com/repos/${userName}/${repoName}`;
 		// const options = {
@@ -26,20 +26,20 @@ function Repo() {
 		// };
 
 		fetch(apiUrl)
-			.then((res) => res.json())
-			.then((infos) => {
+			.then( (res) => res.json())
+			.then( (infos) => {
 				// console.log(infos.id);
 				setRepoState({ loading: false, infos: infos });
 			});
 	}, [setRepoState]);
 
 	return(
-		<div className='App'>
+		<div className = 'App'>
 			<Header />
 
 			<ListLoading
-				isLoading = { repoState.loading }
-				infos = { repoState.infos }
+				isLoading = {repoState.loading}
+				infos = {repoState.infos}
 			/>
 		</div>
 	);

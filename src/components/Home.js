@@ -23,27 +23,22 @@ class SeachForm extends React.Component {
 
 	render() {
 		return (
-			<form onSubmit={this.handleSubmit}>
+			<form onSubmit = {this.handleSubmit}>
 				<label>
 					
-					<div style={{'textAlign': 'left'}}>Input User Name :</div>
+					<div style = {{fontWeight: 'bold'}} >
+						Input User Name:
+					</div>
 
 					<input 
-						value={this.state.value}
-						onChange={this.handleChange} 
-						placeholder={'User Name'}
-						type={'text'}
-						style={{fontSize: '20px', marginTop: '16px', padding: '4px'}}>
+						value = {this.state.value}
+						onChange = {this.handleChange} 
+						placeholder = {'username'}
+						type = {'text'}
+					>
 					</input>
 
 				</label>
-
-				<input
-					type={'submit'}
-					value={'submit'}
-					style={{display: 'none'}}>
-				</input>
-
 			</form>
 		);
 	}
@@ -51,10 +46,16 @@ class SeachForm extends React.Component {
 
 function Home() {
 	return (
-		<div className='App'>
-			<header className='App-header'>
+		<div className = 'App'>
+			<header className = 'App-header'>
+
 				<h2><i>Search Users on Github</i></h2>
-				<img src={logo} className='App-logo' alt='logo' />
+				
+				<img
+					src = {logo}
+					className = 'App-logo'
+					alt='logo'
+				/>
 
 				<SeachForm />
 

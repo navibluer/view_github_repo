@@ -16,7 +16,6 @@ function User() {
 
 	useEffect(() => {
 		setUserState({ loading: true});
-		// defunkt
 		const apiUrl = `https://api.github.com/users/${userName}/repos`;
 		// const options = {
 		// 	method: 'GET',
@@ -33,18 +32,18 @@ function User() {
 	}, [setUserState]);
 
 	return (
-		<div className='App'>
+		<div className = 'App'>
 			<Header />
 			
-			<div className='User'>
-				<div className='User-header'>
-					<h2 >[ {userName} ]</h2>
+			<div className = 'User'>
+				<div className = 'User-header'>
+					<h2 > [ {userName} ] </h2>
 				</div>
-				<div className='User-repo'>
+				<div className = 'User-repo'>
 
 					<ListLoading
-						isLoading = { userState.loading }
-						repos = { userState.repos }
+						isLoading = {userState.loading}
+						repos = {userState.repos}
 					/>
 
 				</div>

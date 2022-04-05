@@ -8,36 +8,37 @@ const RepoInfo = (props) => {
 
 	if (!infos || infos.length === 0) {
 		return (
-			<p style={{ textAlign: 'center', fontSize: '20px' }}>
+			<p style = {{ textAlign: 'center', fontSize: '20px' }}>
 				No information, sorry...
 			</p>
 		);
 	}
 
 	return (
-		<div className='RepoInfo'>
-			<h2 className='header'> [{infos.full_name}] </h2>
+		<div className = 'RepoInfo' >
+			<h2 className = 'header' > [ {infos.full_name} ] </h2>
 
-			<div className='title'> Description : </div>
-			<div className='content'> {infos.description} </div>
+			<div className = 'title' > Description : </div>
+			<div className = 'content' > {infos.description} </div>
 
-			<div className='title'> Stars : </div>
-			<div className='content'> {infos.stargazers_count} </div>
+			<div className = 'title' > Stars : </div>
+			<div className = 'content' > {infos.stargazers_count} </div>
 
-			<div className='title'> Created at : </div>
-			<div className='content'> {infos.created_at} </div>
+			<div className = 'title' > Created at : </div>
+			<div className = 'content' > {infos.created_at} </div>
 
-			<div className='title'> Clone url : </div>
-			<div className='content'> {infos.clone_url} </div>
+			<div className = 'title' > Clone url : </div>
+			<div className = 'content' > {infos.clone_url} </div>
 
-			<br></br>
-			<a
-				href={infos.html_url}
-				target="_blank"
-				rel="noreferrer"
-			>
-					<b> [Link] </b>
-			</a>
+			<div className='link' >
+				<a
+					href = {infos.html_url}
+					target = "_blank"
+					rel = "noreferrer"
+				>
+						[ Link ]
+				</a>
+			</div>
 		</div>
 	);
 };
