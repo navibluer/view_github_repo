@@ -28,10 +28,9 @@ function Repo() {
 		fetch(apiUrl)
 			.then( (res) => res.json())
 			.then( (infos) => {
-				// console.log(infos.id);
 				setRepoState({ loading: false, infos: infos });
 			});
-	}, [setRepoState]);
+	}, [setRepoState]); // FIXME
 
 	return(
 		<div className = 'App'>

@@ -17,6 +17,7 @@ function User() {
 		const apiUrl = `https://api.github.com/users/${userName}/repos`;
 		const per_page = 10;
 		const params = `?per_page=${per_page}&page=${page}`
+		// FIXME: Store token with env variable
 		// const options = {
 		// 	headers: {
 		// 		Authorization: "token ",
@@ -27,8 +28,11 @@ function User() {
 		fetch(apiUrl + params)
 			.then( (res) => res.json() )
 			.then( (data) => {
+				// FIXME: Use ErrorBoundary
 				console.log(data);
-				setRepos(prevRepos => [...prevRepos, ...data]);
+				if (data.length > 0) {
+					setRepos(prevRepos => [...prevRepos, ...data]);
+				}
 				setLoading(false);
 			});
 
@@ -48,7 +52,7 @@ function User() {
 		setLoading(true);
 		window.addEventListener('scroll', handleScroll);
 		getMoreRepos();
-	}, []);
+	}, []); // FIXME
 
 	return (
 		<div className = 'App'>
