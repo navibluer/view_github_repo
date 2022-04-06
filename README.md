@@ -1,4 +1,16 @@
-Online Url: [frontend-demo.amkongchiau.com](https://frontend-demo.amkongchiau.com)
+# Run
+## Online: 
+[frontend-demo.amkongchiau.com](https://frontend-demo.amkongchiau.com)
+## Local:
+```
+git clone https://github.com/navibluer/view_github_repo.git
+npm install
+npm run build
+npm install serve -g
+serve -s build
+```
+## 專案架構：CRA, 參考官方文件
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
