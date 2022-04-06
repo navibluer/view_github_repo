@@ -32,6 +32,8 @@ function User() {
 				console.log(data);
 				if (data.length > 0) {
 					setRepos(prevRepos => [...prevRepos, ...data]);
+				} else {
+					setRepos(data);
 				}
 				setLoading(false);
 			});
