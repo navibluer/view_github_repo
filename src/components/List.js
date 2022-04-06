@@ -4,16 +4,23 @@ import { Link } from 'react-router-dom';
 
 const List = (props) => {
 	const { repos } = props;
+	const messageStyle = {
+		textAlign: 'center',
+		fontSize: '20px',
+	}
+
+	if (repos?.message === 'Not Found') {
+		return (
+			<p style = {messageStyle} >
+				User not found, sorry...
+			</p>
+		);
+	}
 
 	if (!repos || repos.length === 0) {
 		return (
-			<p 
-        style = {{
-          textAlign: 'center',
-          fontSize: '20px',
-        }}
-      >
-				No repos, sorry...
+			<p style = {messageStyle} >
+				User has no repos, sorry...
 			</p>
 		);
 	}
@@ -26,6 +33,7 @@ const List = (props) => {
 
 			<thead>
 				<tr>
+					<th width={48}> # </th>
 					<th> Name </th>
 					<th> Description </th>
 					<th> Stars </th>
@@ -34,9 +42,13 @@ const List = (props) => {
 
 			<tbody>
 
-				{repos.map( (repo) => {
+				{repos.map( (repo, index) => {
 					return (
-						<tr key={repo.id}>
+						<tr key = {repo.id} >
+
+							<td>
+                <Link to = {repo.name} > {index} </Link>
+              </td>
 
 							<td>
                 <Link to = {repo.name} > {repo.name} </Link>
@@ -49,7 +61,7 @@ const List = (props) => {
 							<td>
                 <Link to = {repo.name} > {repo.stargazers_count} </Link>
               </td>
-              
+
 						</tr>
 					);
 				})}
