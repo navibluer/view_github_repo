@@ -33,7 +33,7 @@ const List = (props) => {
 
 			<thead>
 				<tr>
-					<th width={48}> # </th>
+					<th width={56}> # </th>
 					<th> Name </th>
 					<th> Description </th>
 					<th> Stars </th>
@@ -47,7 +47,7 @@ const List = (props) => {
 						<tr key = {repo.id} >
 
 							<td>
-                <Link to = {repo.name} > {index} </Link>
+                <Link to = {repo.name} > {index + 1} </Link>
               </td>
 
 							<td>

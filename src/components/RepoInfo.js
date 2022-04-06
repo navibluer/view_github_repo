@@ -1,10 +1,8 @@
 import '../style.css';
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 const RepoInfo = (props) => {
 	const { infos } = props;
-	console.log(infos);
 
 	if (!infos || infos.length === 0) {
 		return (

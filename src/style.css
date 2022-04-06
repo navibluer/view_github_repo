@@ -59,7 +59,8 @@ a:hover {
 	width: 100%;
 }
 
-.List-table td:nth-child(3) {
+.List-table td:nth-child(4),
+.List-table th:nth-child(4) {
 	text-align: right;
 	padding: 1rem;
 }

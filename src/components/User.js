@@ -9,30 +9,50 @@ import withListLoading from './withListLoading';
 function User() {
 	const ListLoading = withListLoading(List);
 	const { userName } = useParams();
-	const [userState, setUserState] = useState({
-		loading: false,
-		repos: null,
-	});
+	const [loading, setLoading] = useState(false);
+	const [repos, setRepos] = useState([]);
+	let page = 1;
 
-	useEffect(() => {
-		setUserState({ loading: true});
+	const getMoreRepos = () => {
 		const apiUrl = `https://api.github.com/users/${userName}/repos`;
+		const per_page = 10;
+		const params = `?per_page=${per_page}&page=${page}`
 		// const options = {
-		// 	method: 'GET',
 		// 	headers: {
 		// 		Authorization: "token ",
 		// 	},
 		// };
-		
-		fetch(apiUrl)
-			.then((res) => res.json())
-			.then((repos) => {
-				setUserState({ loading: false, repos: repos });
+
+		// fetch(apiUrl + params, options)
+		fetch(apiUrl + params)
+			.then( (res) => res.json() )
+			.then( (data) => {
+				console.log(data);
+				setRepos(prevRepos => [...prevRepos, ...data]);
+				setLoading(false);
 			});
-	}, [setUserState]);
+
+		page += 1;
+	};
+
+	const handleScroll = (e) => {
+		if (
+			window.innerHeight + e.target.documentElement.scrollTop >=
+			e.target.documentElement.scrollHeight
+		) {
+			getMoreRepos();
+		}
+	};
+
+	useEffect(() => {
+		setLoading(true);
+		window.addEventListener('scroll', handleScroll);
+		getMoreRepos();
+	}, []);
 
 	return (
 		<div className = 'App'>
+			
 			<Header />
 			
 			<div className = 'User'>
@@ -40,10 +60,9 @@ function User() {
 					<h2 > [ {userName} ] </h2>
 				</div>
 				<div className = 'User-repo'>
-
 					<ListLoading
-						isLoading = {userState.loading}
-						repos = {userState.repos}
+						isLoading = {loading}
+						repos = {repos}
 					/>
 
 				</div>
