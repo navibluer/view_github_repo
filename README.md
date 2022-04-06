@@ -1,6 +1,10 @@
-# Run
 ## Online: 
-[frontend-demo.amkongchiau.com](https://frontend-demo.amkongchiau.com)
+[frontend-demo.amkongchiau.com](http://frontend-demo.amkongchiau.com)
+
+<!-- <a href="http://frontend-demo.amkongchiau.com" target="_blank" rel="noreferer">
+	frontend-demo.amkongchiau.com
+</a> -->
+
 ## Local:
 ```
 git clone https://github.com/navibluer/view_github_repo.git
@@ -9,7 +13,10 @@ npm run build
 npm install serve -g
 serve -s build
 ```
-## 專案架構：CRA, 參考官方文件
+### 專案架構：CRA, 參考官方文件
+
+<br>
+<hr>
 
 # Getting Started with Create React App
 
