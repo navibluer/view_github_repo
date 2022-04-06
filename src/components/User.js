@@ -8,9 +8,10 @@ import withListLoading from './withListLoading';
 
 function User() {
 	const ListLoading = withListLoading(List);
-	const { userName } = useParams();
+	const { userName } = useParams(); // FIXME: use state ?
 	const [loading, setLoading] = useState(false);
 	const [repos, setRepos] = useState([]);
+	// const [status, setStatus] = useState();
 	let page = 1;
 
 	const getMoreRepos = () => {
@@ -27,13 +28,16 @@ function User() {
 		// fetch(apiUrl + params, options)
 		fetch(apiUrl + params)
 			.then( (res) => res.json() )
-			.then( (data) => {
-				// FIXME: Use ErrorBoundary
-				console.log(data);
-				if (data.length > 0) {
-					setRepos(prevRepos => [...prevRepos, ...data]);
+			.then( (repos) => {
+				// FIXME: Use ErrorBoundary (handle 404, 403)
+				console.log(repos);
+				// 404
+				if (repos?.message === 'Not Found') {
+					setRepos(repos);
+				} else if (repos.length > 0) {
+					setRepos(prevRepos => [...prevRepos, ...repos]);
 				} else {
-					setRepos(data);
+					setRepos(prevRepos => [...prevRepos, ...[]]);
 				}
 				setLoading(false);
 			});

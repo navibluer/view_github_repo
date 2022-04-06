@@ -18,13 +18,14 @@ function Repo() {
 	useEffect( () => {
 		setRepoState({ loading: true});
 		const apiUrl = `https://api.github.com/repos/${userName}/${repoName}`;
+		// FIXME: Store token with env variable
 		// const options = {
-		// 	method: 'GET',
 		// 	headers: {
 		// 		Authorization: "token ",
 		// 	},
 		// };
 
+		// fetch(apiUrl , options)
 		fetch(apiUrl)
 			.then( (res) => res.json())
 			.then( (infos) => {
