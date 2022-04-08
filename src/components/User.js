@@ -19,14 +19,14 @@ function User() {
 		const per_page = 10;
 		const params = `?per_page=${per_page}&page=${page}`
 		// FIXME: Store token with env variable
-		// const options = {
-		// 	headers: {
-		// 		Authorization: "token ",
-		// 	},
-		// };
+		const options = {
+			headers: {
+				Authorization: "token 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",
+			},
+		};
 
-		// fetch(apiUrl + params, options)
-		fetch(apiUrl + params)
+		fetch(apiUrl + params, options)
+		// fetch(apiUrl + params)
 			.then( (res) => res.json() )
 			.then( (repos) => {
 				// FIXME: Use ErrorBoundary (handle 404, 403)

@@ -1,3 +1,4 @@
+import '../App.css';
 import React from 'react';
 
 function WithListLoading(Component) {
@@ -6,7 +7,7 @@ function WithListLoading(Component) {
 		if (!isLoading) return <Component {...props} />;
 		
 		return (
-			<p style = {{ textAlign: 'center', fontSize: '20px' }} >
+			<p className='message' >
 				fetching data...
 			</p>
 		);

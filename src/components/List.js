@@ -1,3 +1,4 @@
+import '../App.css';
 import '../style.css';
 import React from 'react';
 import { Link } from 'react-router-dom';
@@ -11,7 +12,7 @@ const List = (props) => {
 
 	if (repos?.message === 'Not Found') {
 		return (
-			<p style = {messageStyle} >
+			<p className='message' >
 				User not found, sorry...
 			</p>
 		);
@@ -19,7 +20,7 @@ const List = (props) => {
 
 	if (!repos || repos.length === 0) {
 		return (
-			<p style = {messageStyle} >
+			<p className='message' >
 				User has no repos, sorry...
 			</p>
 		);

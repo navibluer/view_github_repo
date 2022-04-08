@@ -1,4 +1,5 @@
 import './index.css';
+import './App.css'
 import React, { Suspense, lazy } from 'react';
 import {
 	BrowserRouter as Router,
@@ -9,23 +10,31 @@ import {
 const Home = lazy(() => import('./components/Home'));
 const User = lazy(() => import('./components/User'));
 const Repo = lazy(() => import('./components/Repo'));
+const ErrorBoundary = lazy(() => import('./components/ErrorBoundary'));
 
 const App = () => (
 	<Router>
-		<Suspense fallback={<div>Loading...</div>}>
+		<Suspense
+			fallback = { <div className = 'message'>Loading...</div> }
+		>
 			<Routes>
+				
 				<Route
-					path="/"
-					element={<Home />}
+					path = "/"
+					element = {<Home />}
 				/>
-				<Route
-					path="/users/:userName/repos"
-					element={<User/>}
-				/>
-				<Route
-					path="/users/:userName/repos/:repoName"
-					element={<Repo/>}
-				/>
+
+				{/* <ErrorBoundary> */}
+					<Route
+						path="/users/:userName/repos"
+						element = {<User/>}
+					/>
+					<Route
+						path="/users/:userName/repos/:repoName"
+						element = {<Repo/>}
+					/>
+				{/* </ErrorBoundary> */}
+
 			</Routes>
 		</Suspense>
 	</Router>
